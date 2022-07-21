@@ -76,6 +76,8 @@ Antonín;Antoníne
 Apolena;Apoleno
 Aranka;Aranko
 Arbes;Arbesi
+Ares;Aresi
+Arés;Arée
 Archimedes;Archimede
 Ariana;Ariano
 Ariel;Arieli
@@ -365,6 +367,7 @@ Havel;Havli
 Havla;Havlo
 Heath;Heathi
 Hedvika;Hedviko
+Hefaistos;Hefaiste
 Hektor;Hektore
 Helberg;Helbergu
 Helena;Heleno

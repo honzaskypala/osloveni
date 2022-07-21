@@ -206,13 +206,13 @@ function osloveni($jmeno) {
 					$replacepair = $c == 'o' || $c == 'r' ? ["", "i"] : ["s", ""];
 				}
 				break;
+			case 'r':
+				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'e' ? ["s", "ro"] : ["", "i"];
+				break;
 			case 'd':
 			case 't':
 			case 'm':
 				$replacepair = ["s", ""];
-				break;
-			case 'r':
-				$replacepair = ["s", "ro"];
 				break;
 			case 'u':
 				$replacepair = ["s", "u"];
@@ -245,8 +245,8 @@ function osloveni($jmeno) {
 			break;
 		case 'o':
 			switch ($ljmeno[strlen($ljmeno) - 3]) {
-			case 'r':
-				$replacepair = ["os", "e"];
+			case 'm':
+				$replacepair = ["", "i"];
 				break;
 			case 'k':
 				$replacepair = ["", "e"];
@@ -255,7 +255,7 @@ function osloveni($jmeno) {
 				$replacepair = ["os", "i"];
 				break;
 			default:
-				$replacepair = ["", "i"];
+				$replacepair = ["os", "e"];
 			}
 			break;
 		case 'a':
@@ -309,7 +309,7 @@ function osloveni($jmeno) {
 			$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["", "i"] : ["", ""];
 			break;
 		default:
-			$replacepair = ["", "i"];
+			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'é' ? ["s", "e"] : ["", "i"];
 		}
 		break;
 	case 'o':

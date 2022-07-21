@@ -141,10 +141,10 @@ def osloveni(jmeno):
                     replacepair = ('', 'i') if ljmeno[-5] == 'j' else ('s', '')
                 else:
                     replacepair = ('', 'i') if c == 'o' or c == 'r' else ('s', '')
+            elif c == 'r':
+                replacepair = ('s', 'ro') if ljmeno[-4] == 'e' else ('', 'i')
             elif c == 'd' or c == 't' or c == 'm':
                 replacepair = ('s', '')
-            elif c == 'r':
-                replacepair = ('s', 'ro')
             elif c == 'u':
                 replacepair = ('s', 'u')
             elif c == 'p':
@@ -166,14 +166,14 @@ def osloveni(jmeno):
                 replacepair = ('s', 'do') if c == 'm' else ('', 'i')
         elif c == 'o':
             c = ljmeno[-3]
-            if c == 'r':
-                replacepair = ('os', 'e')
+            if c == 'm':
+                replacepair = ('', 'i')
             elif c == 'k':
                 replacepair = ('', 'e')
             elif c == 'x':
                 replacepair = ('os', 'i')
             else:
-                replacepair = ('', 'i')
+                replacepair = ('os', 'e')
         elif c == 'a':
             c = ljmeno[-3]
             if c == 'r':
@@ -207,7 +207,7 @@ def osloveni(jmeno):
         elif c == 'y':
             replacepair = ('', 'i') if ljmeno[-4] == 'a' else ('', '')
         else:
-            replacepair = ('', 'i')
+            replacepair = ('s', 'e') if c == 'é' else ('', 'i')
     elif c == 'o':
         replacepair = ('', 'i') if ljmeno[-2] == 'l' else ('', '')
     elif c == 'x':
