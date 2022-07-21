@@ -248,7 +248,7 @@ function osloveni(jmeno) {
 		case 'o':
 			switch (ljmeno.charAt(ljmeno.length - 3)) {
 			case 'm':
-				replacepair = ["", "i"];
+				replacepair = ljmeno.charAt(ljmeno.length - 4) == 'i' ? ["os", "e"] : ["", "i"];
 				break;
 			case 'k':
 				replacepair = ["", "e"];

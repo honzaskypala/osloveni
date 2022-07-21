@@ -219,6 +219,7 @@ Darina;Darino
 Darius;Darie
 Dave;Dave
 Debora;Deboro
+Deimos;Deime
 Delisa;Deliso
 Demeter;Demetero
 Demosthenes;Demosthene

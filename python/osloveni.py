@@ -167,7 +167,7 @@ def osloveni(jmeno):
         elif c == 'o':
             c = ljmeno[-3]
             if c == 'm':
-                replacepair = ('', 'i')
+                replacepair = ('os', 'e') if ljmeno[-4] == 'i' else ('', 'i')
             elif c == 'k':
                 replacepair = ('', 'e')
             elif c == 'x':

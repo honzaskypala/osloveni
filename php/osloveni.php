@@ -246,7 +246,7 @@ function osloveni($jmeno) {
 		case 'o':
 			switch ($ljmeno[strlen($ljmeno) - 3]) {
 			case 'm':
-				$replacepair = ["", "i"];
+				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'i' ? ["os", "e"] : ["", "i"];
 				break;
 			case 'k':
 				$replacepair = ["", "e"];
