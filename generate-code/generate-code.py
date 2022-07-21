@@ -119,7 +119,7 @@ for line in fin:
 
 fin.close()
 
-fin  = codecs.open(os.path.dirname(__file__) + "newnames.txt",  "r", "utf-8")
+fin  = codecs.open(os.path.dirname(__file__) + "/newnames.txt",  "r", "utf-8")
 for line in fin:
     nominativ = line
     if nominativ[0] == '\ufeff':

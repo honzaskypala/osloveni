@@ -212,6 +212,7 @@ Danica;Danico
 Daniel;Danieli
 Daníel;Daníeli
 Danuta;Danuto
+Daněk;Daňku
 Darina;Darino
 Darius;Darie
 Dave;Dave
@@ -499,7 +500,7 @@ Juta;Juto
 Kadlec;Kadlče
 Kajetán;Kajetáne
 Kaley;Kaley
-Karel;Karli
+Karel;Karle
 Karen;Karen
 Kári;Kári
 Karin;Karin

@@ -68,7 +68,7 @@ function osloveni($jmeno) {
 				}
 				break;
 			case 'r':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["el", "li"] : ["", "i"];
+				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["el", "le"] : ["", "i"];
 				break;
 			case 'v':
 				$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'p' ? ["el", "le"] : ["el", "li"];
@@ -452,13 +452,10 @@ function osloveni($jmeno) {
 	case 'k':
 		switch ($ljmeno[strlen($ljmeno) - 2]) {
 		case 'ě':
-			$replacepair = ["k", "če"];
-			break;
-		case 'e':
-			$replacepair = ["ek", "ku"];
+			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'n' ? ["něk", "ňku"] : ["k", "če"];
 			break;
 		default:
-			$replacepair = ["", "u"];
+			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'e' ? ["ek", "ku"] : ["", "u"];
 		}
 		break;
 	case 'g':

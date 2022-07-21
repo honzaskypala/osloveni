@@ -70,7 +70,7 @@ function osloveni(jmeno) {
 				}
 				break;
 			case 'r':
-				replacepair = ljmeno.charAt(ljmeno.length - 4) == 'a' ? ["el", "li"] : ["", "i"];
+				replacepair = ljmeno.charAt(ljmeno.length - 4) == 'a' ? ["el", "le"] : ["", "i"];
 				break;
 			case 'v':
 				replacepair = ljmeno.charAt(ljmeno.length - 5) == 'p' ? ["el", "le"] : ["el", "li"];
@@ -454,13 +454,10 @@ function osloveni(jmeno) {
 	case 'k':
 		switch (ljmeno.charAt(ljmeno.length - 2)) {
 		case 'ě':
-			replacepair = ["k", "če"];
-			break;
-		case 'e':
-			replacepair = ["ek", "ku"];
+			replacepair = ljmeno.charAt(ljmeno.length - 3) == 'n' ? ["něk", "ňku"] : ["k", "če"];
 			break;
 		default:
-			replacepair = ["", "u"];
+			replacepair = ljmeno.charAt(ljmeno.length - 2) == 'e' ? ["ek", "ku"] : ["", "u"];
 		}
 		break;
 	case 'g':

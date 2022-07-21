@@ -50,7 +50,7 @@ def osloveni(jmeno):
                 else:
                     replacepair = ('', 'i')
             elif c == 'r':
-                replacepair = ('el', 'li') if ljmeno[-4] == 'a' else ('', 'i')
+                replacepair = ('el', 'le') if ljmeno[-4] == 'a' else ('', 'i')
             elif c == 'v':
                 replacepair = ('el', 'le') if ljmeno[-5] == 'p' else ('el', 'li')
             elif c == 'k':
@@ -301,11 +301,9 @@ def osloveni(jmeno):
     elif c == 'k':
         c = ljmeno[-2]
         if c == 'ě':
-            replacepair = ('k', 'če')
-        elif c == 'e':
-            replacepair = ('ek', 'ku')
+            replacepair = ('něk', 'ňku') if ljmeno[-3] == 'n' else ('k', 'če')
         else:
-            replacepair = ('', 'u')
+            replacepair = ('ek', 'ku') if c == 'e' else ('', 'u')
     elif c == 'g':
         if ljmeno[-2] == 'i':
             replacepair = ('', '') if ljmeno[-3] == 'e' else ('', 'u')
