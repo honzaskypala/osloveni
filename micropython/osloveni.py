@@ -147,6 +147,8 @@ def osloveni(jmeno):
                 replacepair = ('s', 'ro')
             elif c == 'u':
                 replacepair = ('s', 'u')
+            elif c == 'p':
+                replacepair = ('es', 'se')
             elif c == 'x':
                 replacepair = ('es', 'i')
             else:

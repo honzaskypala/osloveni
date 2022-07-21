@@ -770,6 +770,7 @@ Pepa;Pepo
 Perikles;Perikle
 Pérrault;Pérraulte
 Perzida;Perzido
+Pes;Pse
 Péťa;Péťo
 Pete;Pete
 Peter;Petere

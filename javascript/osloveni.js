@@ -219,6 +219,9 @@ function osloveni(jmeno) {
 			case 'u':
 				replacepair = ["s", "u"];
 				break;
+			case 'p':
+				replacepair = ["es", "se"];
+				break;
 			case 'x':
 				replacepair = ["es", "i"];
 				break;
