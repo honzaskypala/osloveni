@@ -52,6 +52,9 @@ function osloveni($jmeno) {
 		case 'y':
 			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'r' ? ["", "e"] : ["", ""];
 			break;
+		case 'á':
+			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'p' ? ["án", "ane"] : ["", "e"];
+			break;
 		default:
 			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'u' ? ["", "o"] : ["", "e"];
 		}

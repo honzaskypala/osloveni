@@ -38,6 +38,8 @@ def osloveni(jmeno):
                 replacepair = ('', 'e')
         elif c == 'y':
             replacepair = ('', 'e') if ljmeno[-3] == 'r' else ('', '')
+        elif c == 'á':
+            replacepair = ('án', 'ane') if ljmeno[-3] == 'p' else ('', 'e')
         else:
             replacepair = ('', 'o') if c == 'u' else ('', 'e')
     elif c == 'l':

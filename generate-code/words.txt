@@ -760,6 +760,7 @@ Palivec;Palivče
 Pallas;Pallado
 Palmface;Palmfaci
 Palmira;Palmiro
+Pán;Pane
 Pankrác;Pankráci
 Paris;Paride
 Parsons;Parsonsi

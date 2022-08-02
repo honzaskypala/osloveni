@@ -54,6 +54,9 @@ function osloveni(jmeno) {
 		case 'y':
 			replacepair = ljmeno.charAt(ljmeno.length - 3) == 'r' ? ["", "e"] : ["", ""];
 			break;
+		case 'á':
+			replacepair = ljmeno.charAt(ljmeno.length - 3) == 'p' ? ["án", "ane"] : ["", "e"];
+			break;
 		default:
 			replacepair = ljmeno.charAt(ljmeno.length - 2) == 'u' ? ["", "o"] : ["", "e"];
 		}
