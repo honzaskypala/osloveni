@@ -8,8 +8,10 @@ final class OsloveniTest extends TestCase
         $handle = fopen("../words.txt", "r");
         $values = [];
         for ($i = 0; $row = fgetcsv($handle ); ++$i) {
-            list($nominative, $vocative) = explode(';', reset($row));
-            $this->assertEquals(mb_detect_encoding($vocative, "UTF-8"), mb_detect_encoding(osloveni($nominative), "UTF-8"));
+            if (strlen($row[0]) > 2 && ord($row[0][0]) == 239 && ord($row[0][1]) == 187 && ord($row[0][2]) == 191)
+                $row[0] = substr($row[0], 3);  // strip UTF-8 file header
+            list($nominative, $vocative) = explode(';', $row[0]);
+            $this->assertEquals(osloveni($nominative), $vocative);
         }
         fclose($handle);
     }

@@ -5,86 +5,86 @@
 */
 function osloveni($jmeno) {
 	$ljmeno = " " . mb_convert_case($jmeno, MB_CASE_LOWER, "UTF-8");
-	switch ($ljmeno[strlen($ljmeno) - 1]) {
+	switch (mb_substr($ljmeno, -1, 1)) {
 	case 'a':
-		$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'i' ? ["a", "e"] : ["a", "o"];
+		$replacepair = mb_substr($ljmeno, -2, 1) == 'i' ? ["a", "e"] : ["a", "o"];
 		break;
 	case 'n':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'o':
-			if ($ljmeno[strlen($ljmeno) - 3] == 'i') {
-				$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'y' ? ["", "e"] : ["", ""];
+			if (mb_substr($ljmeno, -3, 1) == 'i') {
+				$replacepair = mb_substr($ljmeno, -5, 1) == 'y' ? ["", "e"] : ["", ""];
 			} else {
 				$replacepair = ["", "e"];
 			}
 			break;
 		case 'i':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'r':
-				if ($ljmeno[strlen($ljmeno) - 4] == 'a') {
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'm' ? ["", "e"] : ["", ""];
+				if (mb_substr($ljmeno, -4, 1) == 'a') {
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'm' ? ["", "e"] : ["", ""];
 				} else {
 					$replacepair = ["", ""];
 				}
 				break;
 			case 'l':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'r' ? ["", "e"] : ["", ""];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'r' ? ["", "e"] : ["", ""];
 				break;
 			default:
 				$replacepair = ["", "e"];
 			}
 			break;
 		case 'í':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'r' ? ["", ""] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'r' ? ["", ""] : ["", "e"];
 			break;
 		case 'e':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'm':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'm' ? ["", "e"] : ["", ""];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'm' ? ["", "e"] : ["", ""];
 				break;
 			case 'r':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'o' ? ["", "e"] : ["", ""];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'o' ? ["", "e"] : ["", ""];
 				break;
 			default:
 				$replacepair = ["", "e"];
 			}
 			break;
 		case 'y':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'r' ? ["", "e"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'r' ? ["", "e"] : ["", ""];
 			break;
 		case 'á':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'p' ? ["án", "ane"] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'p' ? ["án", "ane"] : ["", "e"];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'u' ? ["", "o"] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'u' ? ["", "o"] : ["", "e"];
 		}
 		break;
 	case 'l':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'e':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'i':
-				if ($ljmeno[strlen($ljmeno) - 4] == 'r') {
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'u' ? ["", ""] : ["", "i"];
+				if (mb_substr($ljmeno, -4, 1) == 'r') {
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'u' ? ["", ""] : ["", "i"];
 				} else {
 					$replacepair = ["", "i"];
 				}
 				break;
 			case 'r':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["el", "le"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'a' ? ["el", "le"] : ["", "i"];
 				break;
 			case 'v':
-				$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'p' ? ["el", "le"] : ["el", "li"];
+				$replacepair = mb_substr($ljmeno, -5, 1) == 'p' ? ["el", "le"] : ["el", "li"];
 				break;
 			case 'k':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["", ""] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'a' ? ["", ""] : ["", "i"];
 				break;
 			default:
-				$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'h' ? ["", ""] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -3, 1) == 'h' ? ["", ""] : ["", "i"];
 			}
 			break;
 		case 'i':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'a' ? ["", "o"] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'a' ? ["", "o"] : ["", "e"];
 			break;
 		case 'ě':
 		case 'á':
@@ -99,67 +99,67 @@ function osloveni($jmeno) {
 		}
 		break;
 	case 'm':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'a':
-			if ($ljmeno[strlen($ljmeno) - 3] == 'i') {
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'r' ? ["", ""] : ["", "e"];
+			if (mb_substr($ljmeno, -3, 1) == 'i') {
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'r' ? ["", ""] : ["", "e"];
 			} else {
 				$replacepair = ["", "e"];
 			}
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'ů' ? ["ům", "ome"] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'ů' ? ["ům", "ome"] : ["", "e"];
 		}
 		break;
 	case 'c':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'e':
-			if ($ljmeno[strlen($ljmeno) - 3] == 'v') {
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'š' ? ["vec", "evče"] : ["ec", "če"];
+			if (mb_substr($ljmeno, -3, 1) == 'v') {
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'š' ? ["vec", "evče"] : ["ec", "če"];
 			} else {
 				$replacepair = ["ec", "če"];
 			}
 			break;
 		case 'i':
-			$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'o' ? ["", "i"] : ["", "u"];
+			$replacepair = mb_substr($ljmeno, -4, 1) == 'o' ? ["", "i"] : ["", "u"];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'a' ? ["", "u"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'a' ? ["", "u"] : ["", "i"];
 		}
 		break;
 	case 'e':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'n':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'n':
-				$replacepair = $ljmeno[strlen($ljmeno) - 7] == 'b' ? ["", ""] : ["e", "o"];
+				$replacepair = mb_substr($ljmeno, -7, 1) == 'b' ? ["", ""] : ["e", "o"];
 				break;
 			default:
-				$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'g' ? ["e", "i"] : ["", ""];
+				$replacepair = mb_substr($ljmeno, -3, 1) == 'g' ? ["e", "i"] : ["", ""];
 			}
 			break;
 		case 'c':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'i':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'r' ? ["e", "i"] : ["", ""];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'r' ? ["e", "i"] : ["", ""];
 				break;
 			default:
-				$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'v' ? ["", ""] : ["e", "i"];
+				$replacepair = mb_substr($ljmeno, -3, 1) == 'v' ? ["", ""] : ["e", "i"];
 			}
 			break;
 		case 'd':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'l' ? ["e", "o"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'l' ? ["e", "o"] : ["", ""];
 			break;
 		case 'g':
-			if ($ljmeno[strlen($ljmeno) - 3] == 'r') {
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["", ""] : ["e", "i"];
+			if (mb_substr($ljmeno, -3, 1) == 'r') {
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'a' ? ["", ""] : ["e", "i"];
 			} else {
 				$replacepair = ["e", "i"];
 			}
 			break;
 		case 'l':
-			if ($ljmeno[strlen($ljmeno) - 3] == 'l') {
-				switch ($ljmeno[strlen($ljmeno) - 4]) {
+			if (mb_substr($ljmeno, -3, 1) == 'l') {
+				switch (mb_substr($ljmeno, -4, 1)) {
 				case 'e':
 					$replacepair = ["e", "o"];
 					break;
@@ -174,21 +174,21 @@ function osloveni($jmeno) {
 			}
 			break;
 		case 's':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 's' ? ["e", "i"] : ["e", "o"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 's' ? ["e", "i"] : ["e", "o"];
 			break;
 		case 'h':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 't' ? ["", ""] : ["e", "i"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 't' ? ["", ""] : ["e", "i"];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'k' ? ["", "u"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'k' ? ["", "u"] : ["", ""];
 		}
 		break;
 	case 's':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'e':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'n':
-				switch ($ljmeno[strlen($ljmeno) - 4]) {
+				switch (mb_substr($ljmeno, -4, 1)) {
 				case 'e':
 					$replacepair = ["s", ""];
 					break;
@@ -200,17 +200,17 @@ function osloveni($jmeno) {
 				}
 				break;
 			case 'l':
-				switch ($ljmeno[strlen($ljmeno) - 4]) {
+				switch (mb_substr($ljmeno, -4, 1)) {
 				case 'u':
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'j' ? ["", "i"] : ["s", ""];
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'j' ? ["", "i"] : ["s", ""];
 					break;
 				default:
-					$c = $ljmeno[strlen($ljmeno) - 4];
+					$c = mb_substr($ljmeno, -4, 1);
 					$replacepair = $c == 'o' || $c == 'r' ? ["", "i"] : ["s", ""];
 				}
 				break;
 			case 'r':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'e' ? ["s", "ro"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'e' ? ["s", "ro"] : ["", "i"];
 				break;
 			case 'd':
 			case 't':
@@ -231,25 +231,25 @@ function osloveni($jmeno) {
 			}
 			break;
 		case 'i':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'r':
-				if ($ljmeno[strlen($ljmeno) - 4] == 'a') {
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'p' ? ["s", "de"] : ["s", "to"];
+				if (mb_substr($ljmeno, -4, 1) == 'a') {
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'p' ? ["s", "de"] : ["s", "to"];
 				} else {
 					$replacepair = ["", "i"];
 				}
 				break;
 			case 'n':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'f' ? ["s", "de"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'f' ? ["s", "de"] : ["", "i"];
 				break;
 			default:
-				$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'm' ? ["s", "do"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -3, 1) == 'm' ? ["s", "do"] : ["", "i"];
 			}
 			break;
 		case 'o':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'm':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'i' ? ["os", "e"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'i' ? ["os", "e"] : ["", "i"];
 				break;
 			case 'k':
 				$replacepair = ["", "e"];
@@ -262,36 +262,36 @@ function osloveni($jmeno) {
 			}
 			break;
 		case 'a':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'r':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["", "i"] : ["as", "e"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'a' ? ["", "i"] : ["as", "e"];
 				break;
 			case 'l':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'l' ? ["s", "do"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'l' ? ["s", "do"] : ["", "i"];
 				break;
 			default:
-				$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'y' ? ["as", "e"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -3, 1) == 'y' ? ["as", "e"] : ["", "i"];
 			}
 			break;
 		case 'r':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'a' ? ["s", "te"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'a' ? ["s", "te"] : ["", "i"];
 			break;
 		case 'u':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'n':
-				switch ($ljmeno[strlen($ljmeno) - 4]) {
+				switch (mb_substr($ljmeno, -4, 1)) {
 				case 'e':
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'v' ? ["us", "ero"] : ["", "i"];
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'v' ? ["us", "ero"] : ["", "i"];
 					break;
 				default:
-					$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'g' ? ["", "i"] : ["us", "e"];
+					$replacepair = mb_substr($ljmeno, -4, 1) == 'g' ? ["", "i"] : ["us", "e"];
 				}
 				break;
 			case 'e':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'z' ? ["zeus", "die"] : ["us", "e"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'z' ? ["zeus", "die"] : ["us", "e"];
 				break;
 			case 'm':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 't' ? ["us", "e"] : ["", "i"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 't' ? ["us", "e"] : ["", "i"];
 				break;
 			case 'g':
 			case 'a':
@@ -309,126 +309,126 @@ function osloveni($jmeno) {
 			}
 			break;
 		case 'y':
-			$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'a' ? ["", "i"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -4, 1) == 'a' ? ["", "i"] : ["", ""];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'é' ? ["s", "e"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'é' ? ["s", "e"] : ["", "i"];
 		}
 		break;
 	case 'o':
-		$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'l' ? ["", "i"] : ["", ""];
+		$replacepair = mb_substr($ljmeno, -2, 1) == 'l' ? ["", "i"] : ["", ""];
 		break;
 	case 'x':
-		$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'n' ? ["x", "go"] : ["", "i"];
+		$replacepair = mb_substr($ljmeno, -2, 1) == 'n' ? ["x", "go"] : ["", "i"];
 		break;
 	case 'i':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'n':
-			$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'e' ? ["", ""] : ["", "o"];
+			$replacepair = mb_substr($ljmeno, -4, 1) == 'e' ? ["", ""] : ["", "o"];
 			break;
 		case 'm':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'a' ? ["", ""] : ["", "o"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'a' ? ["", ""] : ["", "o"];
 			break;
 		case 'r':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'i' ? ["", "o"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'i' ? ["", "o"] : ["", ""];
 			break;
 		default:
-			$c = $ljmeno[strlen($ljmeno) - 2];
+			$c = mb_substr($ljmeno, -2, 1);
 			$replacepair = $c == 's' || $c == 'a' || $c == 'o' || $c == 'c' || $c == 't' ? ["", "i"] : ["", ""];
 		}
 		break;
 	case 't':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'i':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'l' ? ["", "e"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'l' ? ["", "e"] : ["", ""];
 			break;
 		case 'u':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'r' ? ["", ""] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'r' ? ["", ""] : ["", "e"];
 			break;
 		default:
 			$replacepair = ["", "e"];
 		}
 		break;
 	case 'r':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'e':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'd':
-				if ($ljmeno[strlen($ljmeno) - 4] == 'i') {
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'e' ? ["", "e"] : ["", "i"];
+				if (mb_substr($ljmeno, -4, 1) == 'i') {
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'e' ? ["", "e"] : ["", "i"];
 				} else {
 					$replacepair = ["er", "re"];
 				}
 				break;
 			case 't':
-				switch ($ljmeno[strlen($ljmeno) - 4]) {
+				switch (mb_substr($ljmeno, -4, 1)) {
 				case 'e':
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'p' ? ["", "e"] : ["", "o"];
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'p' ? ["", "e"] : ["", "o"];
 					break;
 				case 's':
-					$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'o' ? ["", "e"] : ["", ""];
+					$replacepair = mb_substr($ljmeno, -5, 1) == 'o' ? ["", "e"] : ["", ""];
 					break;
 				default:
-					$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'n' ? ["", "i"] : ["", "e"];
+					$replacepair = mb_substr($ljmeno, -4, 1) == 'n' ? ["", "i"] : ["", "e"];
 				}
 				break;
 			default:
-				$c = $ljmeno[strlen($ljmeno) - 3];
+				$c = mb_substr($ljmeno, -3, 1);
 				$replacepair = $c == 'g' || $c == 'k' ? ["er", "ře"] : ["", "e"];
 			}
 			break;
 		case 'a':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'm':
-				$replacepair = $ljmeno[strlen($ljmeno) - 4] == 'g' ? ["", ""] : ["", "e"];
+				$replacepair = mb_substr($ljmeno, -4, 1) == 'g' ? ["", ""] : ["", "e"];
 				break;
 			case 'l':
-				$replacepair = $ljmeno[strlen($ljmeno) - 5] == 'p' ? ["", ""] : ["", "e"];
+				$replacepair = mb_substr($ljmeno, -5, 1) == 'p' ? ["", ""] : ["", "e"];
 				break;
 			default:
 				$replacepair = ["", "e"];
 			}
 			break;
 		case 'o':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'n' ? ["", "o"] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'n' ? ["", "o"] : ["", "e"];
 			break;
 		default:
-			$c = $ljmeno[strlen($ljmeno) - 2];
+			$c = mb_substr($ljmeno, -2, 1);
 			$replacepair = $c == 'd' || $c == 't' || $c == 'b' ? ["r", "ře"] : ["", "e"];
 		}
 		break;
 	case 'j':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'o':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 't' ? ["oj", "ý"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 't' ? ["oj", "ý"] : ["", "i"];
 			break;
 		case 'i':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'd' ? ["", "i"] : ["ij", "ý"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'd' ? ["", "i"] : ["ij", "ý"];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'y' ? ["yj", "ý"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'y' ? ["yj", "ý"] : ["", "i"];
 		}
 		break;
 	case 'd':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'i':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'r' ? ["", ""] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'r' ? ["", ""] : ["", "e"];
 			break;
 		case 'u':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'a' ? ["", ""] : ["", "e"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'a' ? ["", ""] : ["", "e"];
 			break;
 		default:
 			$replacepair = ["", "e"];
 		}
 		break;
 	case 'y':
-		$c = $ljmeno[strlen($ljmeno) - 2];
+		$c = mb_substr($ljmeno, -2, 1);
 		$replacepair = $c == 'a' || $c == 'g' || $c == 'o' ? ["", "i"] : ["", ""];
 		break;
 	case 'h':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'c':
-			switch ($ljmeno[strlen($ljmeno) - 3]) {
+			switch (mb_substr($ljmeno, -3, 1)) {
 			case 'r':
 				$replacepair = ["", "i"];
 				break;
@@ -440,39 +440,39 @@ function osloveni($jmeno) {
 			}
 			break;
 		case 't':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'e' ? ["", "e"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'e' ? ["", "e"] : ["", "i"];
 			break;
 		case 'a':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'o' ? ["", "u"] : ["", ""];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'o' ? ["", "u"] : ["", ""];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'ů' ? ["ůh", "ože"] : ["", "i"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'ů' ? ["ůh", "ože"] : ["", "i"];
 		}
 		break;
 	case 'v':
-		$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'ů' ? ["", ""] : ["", "e"];
+		$replacepair = mb_substr($ljmeno, -2, 1) == 'ů' ? ["", ""] : ["", "e"];
 		break;
 	case 'u':
-		$replacepair = $ljmeno[strlen($ljmeno) - 2] == 't' ? ["", ""] : ["", "i"];
+		$replacepair = mb_substr($ljmeno, -2, 1) == 't' ? ["", ""] : ["", "i"];
 		break;
 	case 'k':
-		switch ($ljmeno[strlen($ljmeno) - 2]) {
+		switch (mb_substr($ljmeno, -2, 1)) {
 		case 'ě':
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'n' ? ["něk", "ňku"] : ["k", "če"];
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'n' ? ["něk", "ňku"] : ["k", "če"];
 			break;
 		default:
-			$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'e' ? ["ek", "ku"] : ["", "u"];
+			$replacepair = mb_substr($ljmeno, -2, 1) == 'e' ? ["ek", "ku"] : ["", "u"];
 		}
 		break;
 	case 'g':
-		if ($ljmeno[strlen($ljmeno) - 2] == 'i') {
-			$replacepair = $ljmeno[strlen($ljmeno) - 3] == 'e' ? ["", ""] : ["", "u"];
+		if (mb_substr($ljmeno, -2, 1) == 'i') {
+			$replacepair = mb_substr($ljmeno, -3, 1) == 'e' ? ["", ""] : ["", "u"];
 		} else {
 			$replacepair = ["", "u"];
 		}
 		break;
 	case 'ň':
-		$replacepair = $ljmeno[strlen($ljmeno) - 2] == 'o' ? ["ň", "ni"] : ["ůň", "oni"];
+		$replacepair = mb_substr($ljmeno, -2, 1) == 'o' ? ["ň", "ni"] : ["ůň", "oni"];
 		break;
 	case 'f':
 	case 'p':
@@ -494,19 +494,19 @@ function osloveni($jmeno) {
 	if ($replacepair[0] == "" && $replacepair[1] == "") {
 		return $jmeno;
 	} elseif ($replacepair[1] == "") {
-		return substr($jmeno, 0, -strlen($replacepair[0]));
+		return mb_substr($jmeno, 0, -mb_strlen($replacepair[0]));
 	} elseif ($replacepair[0] == "") {
-		return $jmeno . (mb_convert_case($jmeno[strlen($jmeno) - 1], MB_CASE_LOWER) == $jmeno[strlen($jmeno) - 1] ? $replacepair[1] : mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8"));
+		return $jmeno . (preg_match("/^[a-záčďéěíňóřšťţúůýž]+$/u", mb_substr($jmeno, -1, 1)) ? $replacepair[1] : mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8"));
 	} else {
-		$replaceending = substr($jmeno, -strlen($replacepair[0]));
-		if (mb_convert_case($replaceending, MB_CASE_UPPER) == $replaceending) {
-			return substr($jmeno, 0, strlen($jmeno) - strlen($replacepair[0])) . mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8");
-		} elseif (preg_match("/^[A-ZÁČĎÉÍŇÓŘŠŤÚÝŽ][a-záčďéěíňóřšťúůýž]*$/u", $replaceending)) {
-			return substr($jmeno, 0, strlen($jmeno) - strlen($replacepair[0])) . mb_convert_case($replacepair[1], MB_CASE_TITLE, "UTF-8");
-		} elseif (mb_convert_case($jmeno[strlen($jmeno) - 1], MB_CASE_UPPER) == $jmeno[strlen($jmeno) - 1]) {
-			return substr($jmeno, 0, strlen($jmeno) - strlen($replacepair[0])) . mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8");
+		$replaceending = mb_substr($jmeno, -mb_strlen($replacepair[0]));
+		if (preg_match("/^[A-ZÁČĎÉÍŇÓŘŠŤÚÝŽ]+$/u", $replaceending)) {
+			return mb_substr($jmeno, 0, -mb_strlen($replacepair[0])) . mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8");
+		} elseif (preg_match("/^[A-ZÁČĎÉÍŇÓŘŠŤÚÝŽ][a-záčďéěíňóřšťţúůýž]*$/u", $replaceending)) {
+			return mb_substr($jmeno, 0, -mb_strlen($replacepair[0])) . mb_convert_case($replacepair[1], MB_CASE_TITLE, "UTF-8");
+		} elseif (preg_match("/^[A-ZÁČĎÉÍŇÓŘŠŤÚÝŽ]+$/u", mb_substr($jmeno, -1, 1))) {
+			return mb_substr($jmeno, 0, -mb_strlen($replacepair[0])) . mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8");
 		} else {
-			return substr($jmeno, 0, strlen($jmeno) - strlen($replacepair[0])) . $replacepair[1];
+			return mb_substr($jmeno, 0, -mb_strlen($replacepair[0])) . $replacepair[1];
 		}
 	}
 }
