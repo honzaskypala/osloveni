@@ -1,10 +1,10 @@
 import unittest
 
-WORDS_FILE = "../words.txt"
+WORDS_FILE = "../generate-code/words.txt"
 
 import os
 import sys
-sys.path.append(os.path.dirname(__file__) + "/../../python")
+sys.path.append(os.path.dirname(__file__) + "/../python")
 from osloveni import osloveni
 
 import codecs
