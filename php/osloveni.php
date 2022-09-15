@@ -496,7 +496,7 @@ function osloveni($jmeno) {
 	} elseif ($replacepair[1] == "") {
 		return substr($jmeno, 0, -strlen($replacepair[0]));
 	} elseif ($replacepair[0] == "") {
-		return $jmeno + (mb_convert_case($jmeno[strlen($jmeno)], MB_CASE_LOWER) == $jmeno[strlen($jmeno)] ? $replacepair[1] : mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8"));
+		return $jmeno . (mb_convert_case($jmeno[strlen($jmeno) - 1], MB_CASE_LOWER) == $jmeno[strlen($jmeno) - 1] ? $replacepair[1] : mb_convert_case($replacepair[1], MB_CASE_UPPER, "UTF-8"));
 	} else {
 		$replaceending = substr($jmeno, -strlen($replacepair[0]));
 		if (mb_convert_case($replaceending, MB_CASE_UPPER) == $replaceending) {

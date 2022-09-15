@@ -1,0 +1,18 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript test for osloveni</title>
+</head>
+<body>
+    <p>JavaScript test for osloveni</p>
+    <p id="demo1">test pane 1</p>
+    <p id="demo2">test pane 2</p>
+    <p id="demo3">test pane 3</p>
+    <script src="../../javascript/osloveni.js"></script>
+    <script>
+        document.getElementById("demo1").innerHTML = osloveni("Petr");
+        document.getElementById("demo2").innerHTML = osloveni("PETR");
+        document.getElementById("demo3").innerHTML = osloveni("petr");
+    </script>
+</body>
+</html>
