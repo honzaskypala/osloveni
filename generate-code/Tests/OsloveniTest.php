@@ -10,7 +10,9 @@ final class OsloveniTest extends TestCase
             if (strlen($row[0]) > 2 && ord($row[0][0]) == 239 && ord($row[0][1]) == 187 && ord($row[0][2]) == 191)
                 $row[0] = substr($row[0], 3);  // strip UTF-8 file header
             list($nominative, $vocative) = explode(';', $row[0]);
-            $this->assertEquals(osloveni($nominative), $vocative);
+            $this->assertEquals(osloveni(mb_convert_case($nominative, MB_CASE_UPPER)), mb_convert_case($vocative, MB_CASE_UPPER));
+            $this->assertEquals(osloveni(mb_convert_case($nominative, MB_CASE_LOWER)), mb_convert_case($vocative, MB_CASE_LOWER));
+            $this->assertEquals(osloveni(mb_convert_case($nominative, MB_CASE_TITLE)), mb_convert_case($vocative, MB_CASE_TITLE));
         }
         fclose($handle);
     }
