@@ -496,20 +496,20 @@ function osloveni(jmeno) {
 	if (replacepair[0] == "" && replacepair[1] == "") {
 		return jmeno;
 	} else if (replacepair[1] == "") {
-		return jmeno.substr(0, -replacepair[0].length);
+		return jmeno.substring(0, jmeno.length - replacepair[0].length);
 	} else if (replacepair[0] == "") {
-		return jmeno + (jmeno.charAt(jmeno.length).toLowerCase() == jmeno.charAt(jmeno.length) ? replacepair[1] : replacepair[1].toUpperCase());
+		return jmeno + (jmeno.charAt(jmeno.length - 1).toLowerCase() == jmeno.charAt(jmeno.length - 1) ? replacepair[1] : replacepair[1].toUpperCase());
 	} else {
 		var replaceending;
-		replaceending = jmeno.substr(jmeno.length - replacepair[0].length);
+		replaceending = jmeno.substring(jmeno.length - replacepair[0].length);
 		if (replaceending.toUpperCase() == replaceending) {
-			return jmeno.substr(0, jmeno.length - replacepair[0].length) + replacepair[1].toUpperCase();
+			return jmeno.substring(0, jmeno.length - replacepair[0].length) + replacepair[1].toUpperCase();
 		} else if (replaceending.match(/^[A-ZÁČĎÉÍŇÓŘŠŤÚÝŽ][a-záčďéěíňóřšťúůýž]*$/u)) {
-			return jmeno.substr(0, jmeno.length - replacepair[0].length) + replacepair[1].replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+			return jmeno.substring(0, jmeno.length - replacepair[0].length) + replacepair[1].replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();});
 		} else if (jmeno.charAt(jmeno.length - 1).toUpperCase() == jmeno.charAt(jmeno.length - 1)) {
-			return jmeno.substr(0, jmeno.length - replacepair[0].length) + replacepair[1].toUpperCase();
+			return jmeno.substring(0, jmeno.length - replacepair[0].length) + replacepair[1].toUpperCase();
 		} else {
-			return jmeno.substr(0, jmeno.length - replacepair[0].length) + replacepair[1];
+			return jmeno.substring(0, jmeno.length - replacepair[0].length) + replacepair[1];
 		}
 	}
 }
