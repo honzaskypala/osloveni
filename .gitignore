@@ -1,3 +1,4 @@
 generate-code/info.php
 generate-code/info.txt
 */__pycache__/*
+.DS_Store
