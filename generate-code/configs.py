@@ -91,6 +91,7 @@ configs = {
     "javascript" :
         {
             "filesuffix"           : ".js",
+            "fileend"              : "\nif (typeof module !== 'undefined' && module.exports) {\n\tmodule.exports = { osloveni }; // if running in Node.js → export the function to public\n}",
             "commentstart"         : "/*",
             "commentend"           : "*/",
             "indent"               : "\t",

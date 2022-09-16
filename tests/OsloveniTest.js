@@ -1,8 +1,4 @@
 // This unit test is written in Node.js and requires module unit.js installed.
-// Also, it requires that you manually add the following line at the end of
-// osloveni.js file, so the function could be imported into this unit test:
-//   module.exports = { osloveni };
-
 const test = require('unit.js');
 const tools = require('../javascript/osloveni');
 const fs = require('fs');

@@ -513,3 +513,7 @@ function osloveni(jmeno) {
 		}
 	}
 }
+
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = { osloveni }; // if running in Node.js → export the function to public
+}
