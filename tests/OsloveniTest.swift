@@ -1,3 +1,5 @@
+import XCTest
+
 func testOsloveni(words: String) throws {
     let lines = words.split(whereSeparator: \.isNewline)
     for i in 0..<lines.count {
