@@ -210,15 +210,15 @@ def generateCodeTree(node, depth, config, fout, suffix = "", indentLevel = 0):
                 suffixLeafs[sufIndex] = []
             suffixLeafs[sufIndex].append(k)
     usefetchedchar = False
-    if ("switchsupport" not in config or not config["switchsupport"]) and "fetchcharoptimization" in config and config["fetchcharoptimization"] and (len(non_leafs) > 1 or len(non_leafs) + len(suffixLeafs) > 2):
+    if "switch" not in config and "fetchcharoptimization" in config and config["fetchcharoptimization"] and (len(non_leafs) > 1 or len(non_leafs) + len(suffixLeafs) > 2):
         fout.write(indent + config["assignement"].format(var=config["var"].format(varname="c"), exp=config["charatpos"].format(var=var, pos=str(-depth) if "strnegativepos" in config and config["strnegativepos"] else config["strlen"].format(var=var) + " - " + str(depth))) + "\n")
         usefetchedchar = True
-    if "switchsupport" in config and config["switchsupport"] and len(non_leafs) + len(suffixLeafs) > 2:
+    if "switch" in config and len(non_leafs) + len(suffixLeafs) > 2:
         fout.write(indent + config["switch"].format(var=config["charatpos"].format(var=var, pos=str(-depth) if "strnegativepos" in config and config["strnegativepos"] else config["strlen"].format(var=var) + " - " + str(depth))) + "\n")
     for key, subnode in non_leafs.items():
-        fout.write(indent + (config["case"].format(exp=config["charquote"] + key + config["charquote"]) if "switchsupport" in config and config["switchsupport"] and len(non_leafs) + len(suffixLeafs) > 2 else generateIfCondition(i, depth, config, var, key, usefetchedchar)) + "\n")
+        fout.write(indent + (config["case"].format(exp=config["charquote"] + key + config["charquote"]) if "switch" in config and len(non_leafs) + len(suffixLeafs) > 2 else generateIfCondition(i, depth, config, var, key, usefetchedchar)) + "\n")
         generateCodeTree(subnode, depth + 1, config, fout, key + suffix, indentLevel + 1)
-        if "switchsupport" in config and config["switchsupport"] and "endcase" in config and len(non_leafs) + len(suffixLeafs) > 2:
+        if "switch" in config and "endcase" in config and len(non_leafs) + len(suffixLeafs) > 2:
             fout.write(indent + config["endcase"] + "\n")
         i += 1
     if len(leafs) > 0:
@@ -241,12 +241,12 @@ def generateCodeTree(node, depth, config, fout, suffix = "", indentLevel = 0):
                         cond = generateEqualCond(depth, config, exp1, sufList[j]) if j == 0 else config["or"].format(exp1=cond, exp2=generateEqualCond(depth, config, exp1, sufList[j]))
             moreindent = ""
             if i > 0:
-                fout.write(indent + config["default" if "switchsupport" in config and config["switchsupport"] and (len(suffixLeafs) + len(non_leafs)) > 2 else "else"] + "\n")
+                fout.write(indent + config["default" if "switch" in config and (len(suffixLeafs) + len(non_leafs)) > 2 else "else"] + "\n")
                 moreindent = config["indent"]
             if usefetchedchar2 and not usefetchedchar:
                 fout.write(indent + moreindent + config["assignement"].format(var=config["var"].format(varname="c"), exp=config["charatpos"].format(var=var, pos=str(-depth) if "strnegativepos" in config and config["strnegativepos"] else config["strlen"].format(var=var) + " - " + str(depth))) + "\n")
             fout.write(indent + moreindent + config["assignement"].format(var=config["var"].format(varname="replacepair"), exp=config["conditional"].format(cond=cond, exp1=config["tuple"].format(exp1=config["strquote"] + lessfreqreplacewhat + config["strquote"], exp2=config["strquote"] + lessfreqreplaceby + config["strquote"]), exp2=config["tuple"].format(exp1=config["strquote"] + mostfreqreplacewhat + config["strquote"], exp2=config["strquote"] + mostfreqreplaceby + config["strquote"]))) + "\n")
-            if "switchsupport" in config and config["switchsupport"] and len(suffixLeafs) > 2 and "enddefault" in config and config["enddefault"]:
+            if "switch" in config and len(suffixLeafs) > 2 and "enddefault" in config and config["enddefault"]:
                 fout.write(indent + config["enddefault"] + "\n")
         else:
             for key, sufList in suffixLeafs.items():
@@ -254,7 +254,7 @@ def generateCodeTree(node, depth, config, fout, suffix = "", indentLevel = 0):
                     (mostfreqreplacewhat, mostfreqreplaceby) = key.split("|")
                 else:
                     (replacewhat, replaceby) = key.split("|")
-                    if "switchsupport" in config and config["switchsupport"] and len(suffixLeafs) > 2:
+                    if "switch" in config and len(suffixLeafs) > 2:
                         if "casemultiseparator" in config:
                             exp = config["charquote"] + sufList[0] + config["charquote"]
                             for i in range(1, len(sufList)):
@@ -266,16 +266,16 @@ def generateCodeTree(node, depth, config, fout, suffix = "", indentLevel = 0):
                     else:
                         fout.write(indent + generateIfCondition(i, depth, config, var, sufList, usefetchedchar) + "\n")
                     fout.write(indent + config["indent"] + config["assignement"].format(var=config["var"].format(varname="replacepair"), exp=config["tuple"].format(exp1=config["strquote"] + replacewhat + config["strquote"], exp2=config["strquote"] + replaceby + config["strquote"])) + "\n")
-                    if "switchsupport" in config and config["switchsupport"] and "endcase" in config and len(suffixLeafs) > 2:
+                    if "switch" in config and "endcase" in config and len(suffixLeafs) > 2:
                         fout.write(indent + config["endcase"] + "\n")
                     i += 1
             if (i > 0):
-                fout.write(indent + config["default" if "switchsupport" in config and config["switchsupport"] and (len(suffixLeafs) + len(non_leafs)) > 2 else "else"] + "\n")
+                fout.write(indent + config["default" if "switch" in config and (len(suffixLeafs) + len(non_leafs)) > 2 else "else"] + "\n")
             fout.write(indent + config["indent"] + config["assignement"].format(var=config["var"].format(varname="replacepair"), exp=config["tuple"].format(exp1=config["strquote"] + mostfreqreplacewhat + config["strquote"], exp2=config["strquote"] + mostfreqreplaceby + config["strquote"])) + "\n")
-            if "switchsupport" in config and config["switchsupport"] and len(suffixLeafs) > 2 and "enddefault" in config and config["enddefault"]:
+            if "switch" in config and len(suffixLeafs) > 2 and "enddefault" in config:
                 fout.write(indent + config["enddefault"] + "\n")
 
-    if "switchsupport" in config and config["switchsupport"] and (len(non_leafs) > 0 or len(suffixLeafs) > 2):
+    if "switch" in config and (len(non_leafs) > 0 or len(suffixLeafs) > 2):
         fout.write(indent + config["endswitch"] + "\n")
     elif "endif" in config and (len(non_leafs) > 0 or len(suffixLeafs) > 2):
         fout.write(indent + config["endif"] + "\n")
