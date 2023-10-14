@@ -495,11 +495,11 @@ public static String osloveni(String jmeno) {
         replacepair = new String[]{"", "i"};
     }
 
-    if (replacepair[0] == "" && replacepair[1] == "") {
+    if (replacepair[0].isEmpty() && replacepair[1].isEmpty()) {
         return jmeno;
-    } else if (replacepair[1] == "") {
+    } else if (replacepair[1].isEmpty()) {
         return jmeno.substring(0, jmeno.length() - replacepair[0].length());
-    } else if (replacepair[0] == "") {
+    } else if (replacepair[0].isEmpty()) {
         return jmeno + ((String.valueOf(jmeno.charAt(jmeno.length() - 1)).toLowerCase().equals(jmeno.charAt(jmeno.length() - 1))) ? replacepair[1] : replacepair[1].toUpperCase());
     } else {
         String replaceending;
