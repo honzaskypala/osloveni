@@ -318,7 +318,7 @@ def generateFunction(language, config):
         fout.write(config["indent"] + config["vardeclaration"].format(var=config["var"].format(varname="ljmeno"), type=config["vartypestring"] if "vartypestring" in config else "") + "\n")
         fout.write(config["indent"] + config["vardeclaration"].format(var=config["var"].format(varname="replacepair"), type=config["vartypestrtuple"] if "vartypestrtuple" in config else "") + "\n")
     if "fetchcharoptimization" in config and config["fetchcharoptimization"] and "vardeclaration" in config:
-        fout.write(config["indent"] + config["vardeclaration"].format(var=config["var"].format(varname="c"), type=config["vartypestring"] if "vartypestring" in config else "") + "\n")
+        fout.write(config["indent"] + config["vardeclaration"].format(var=config["var"].format(varname="c"), type=config["vartypechar"] if "vartypechar" in config else config["vartypestring"] if "vartypestring" in config else "") + "\n")
     fout.write(config["indent"] + config["assignement"].format(var=config["var"].format(varname="ljmeno"), exp=config["concat"].format(str1=config["strquote"] + " " + config["strquote"], str2=config["lowercase"].format(var=config["var"].format(varname="jmeno")))) + "\n")
     generateCodeTree(suffixTree, 1, config, fout)
     generateReturn(fout)
