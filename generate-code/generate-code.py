@@ -305,7 +305,8 @@ def generateReturn(fout):
         fout.write(config["indent"] + config["endif"] + "\n")
 
 def generateFunction(language, config):
-    fout = codecs.open(os.path.dirname(__file__) + "/../" + language + "/osloveni" + config["filesuffix"], "w", "utf-8")
+    filename = config["filename"] if "filename" in config else "osloveni"
+    fout = codecs.open(os.path.dirname(__file__) + "/../" + language + "/" + filename + config["filesuffix"], "w", "utf-8")
     if "filestart" in config:
         fout.write(config["filestart"] + "\n")
     var = config["var"].format(varname="jmeno")

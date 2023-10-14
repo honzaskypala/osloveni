@@ -1,6 +1,7 @@
 configs = {
     "java" :
         {
+            "filename"             : "Osloveni",
             "filesuffix"           : ".java",
             "fileend"              : "    public static String capitalize(String text) {\n        if (text.isEmpty()) {\n            return text;\n        }\n        return text.substring(0, 1).toUpperCase() + text.substring(1);\n    }\n\n}",
             "commentstart"         : "/*",
@@ -47,7 +48,7 @@ configs = {
             "tuple"                : "new String[]{{{exp1}, {exp2}}}",
             "strnegativepos"       : False,
             "fetchcharoptimization": True,
-            "funcdoc"              : "/**\n * Vrací pátý pád jména k prvnímu pádu\n * @param {String} jmeno první pád jména\n */\npublic class osloveni {\n",
+            "funcdoc"              : "/**\n * Vrací pátý pád jména k prvnímu pádu\n * @param {String} jmeno první pád jména\n */\npublic class Osloveni {\n",
             "docinsidefunction"    : False,
         },
     "python" :
