@@ -500,11 +500,11 @@ public static String osloveni(String jmeno) {
     } else if (replacepair[1].isEmpty()) {
         return jmeno.substring(0, jmeno.length() - replacepair[0].length());
     } else if (replacepair[0].isEmpty()) {
-        return jmeno + ((String.valueOf(jmeno.charAt(jmeno.length() - 1)).toLowerCase().equals(jmeno.charAt(jmeno.length() - 1))) ? replacepair[1] : replacepair[1].toUpperCase());
+        return jmeno + ((String.valueOf(jmeno.charAt(jmeno.length() - 1)).toLowerCase().equals(String.valueOf(jmeno.charAt(jmeno.length() - 1)))) ? replacepair[1] : replacepair[1].toUpperCase());
     } else {
         String replaceending;
         replaceending = jmeno.substring(jmeno.length() - replacepair[0].length());
-        if (String.valueOf(replaceending).toUpperCase().equals(replaceending)) {
+        if (replaceending.toUpperCase().equals(replaceending)) {
             return jmeno.substring(0, jmeno.length() - replacepair[0].length()) + replacepair[1].toUpperCase();
         } else if (replaceending.matches("^[A-ZÁČĎÉÍŇÓŘŠŤÚÝŽ][a-záčďéěíňóřšťúůýž]*$")) {
             return jmeno.substring(0, jmeno.length() - replacepair[0].length()) + capitalize(replacepair[1]);
